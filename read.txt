@@ -1,0 +1,50 @@
+🛠️ Step 5: Extract Data with PhotoRec
+
+If the file is unrecoverable but the image data still exists on disk:
+
+Install PhotoRec (free, open-source).
+
+Run it on your external hard disk.
+
+It scans raw sectors and reconstructs lost JPGs (ignores filesystem corruption).
+
+✅ Summary:
+
+First, try opening & resaving in different apps.
+
+If not, try ImageMagick or repair software.
+
+If still bad, use PhotoRec for deep recovery.
+
+👉 Nikhil, do you want me to show you the ImageMagick command approach in detail (since it’s free and works on Mac), or would you prefer going with an easy GUI repair tool like Stellar Repair?
+
+You said:
+how to repair a bunch of jpg images?
+ChatGPT said:
+
+Perfect follow-up 👍 If you have a whole batch of JPGs that show the read/write error (or are corrupted), you don’t want to fix them one by one. Instead, you can batch repair them using tools or scripts.
+
+Here are some solid approaches:
+
+🔧 1. Batch Repair with ImageMagick (Free, Mac/Linux/Windows)
+
+Install ImageMagick (Mac: brew install imagemagick).
+
+Go to the folder containing your JPGs:
+
+cd /path/to/folder
+
+
+Run a loop to repair all .jpg files:
+
+mkdir fixed
+for f in *.jpg; do
+    convert "$f" -strip -interlace Plane -quality 90% "fixed/$f"
+done
+
+
+✅ This rebuilds each file’s structure, removes broken metadata, and saves them into a fixed folder.
+
+🛠️ 2. Use jpegoptim or jpegrescan (Lightweight Fix)
+
+Install jpegoptim (brew install jpegoptim).
